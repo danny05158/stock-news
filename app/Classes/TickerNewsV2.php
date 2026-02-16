@@ -5,11 +5,12 @@ namespace App\Classes;
 class TickerNewsV2 {
 
    protected $API_URL = 'https://api.polygon.io';
-   protected $api_key = '0vuALpjDqJ_XmYXC8mU_pw92V9D879OZ';
+   protected $api_key;
 
     public function __construct($params = []) {
       $this->ticker = $params['ticker'];
       $this->tdate = date("Y-m-d");
+      $this->api_key = getenv('POLYGON_API_KEY');
     }
 
     protected function _getApi(){
